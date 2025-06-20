@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+
+    <title>Return Book</title>
+</head>
+<body>
+<div th:replace="fragments/header :: body"></div>
+<h1>Return Book</h1>
+<form th:action="@{/return}" method="post">
+    Borrow Record ID: <input type="number" name="recordId" required><br>
+    <button type="submit">Return Book</button>
+</form>
+
+<p th:if="${message}" th:text="${message}" style="color: green;"></p>
+<p th:if="${error}" th:text="${error}" style="color: red;"></p>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+
+    <title>Borrow Records</title>
+</head>
+<body>
+<div th:replace="fragments/header :: body"></div>
+<h1>Borrow Records</h1>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Student</th>
+        <th>Book</th>
+        <th>Borrow Date</th>
+        <th>Return Date</th>
+        <th>Status</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="record : ${records}">
+        <td th:text="${record.id}">1</td>
+        <td th:text="${record.student.name}">Student Name</td>
+        <td th:text="${record.book.title}">Book Title</td>
+        <td th:text="${#temporals.format(record.borrowDate, 'dd-MM-yyyy HH:mm')}">N/A</td>
+        <td th:text="${record.returnDate != null ? #temporals.format(record.returnDate, 'dd-MM-yyyy HH:mm') : '---'}">N/A</td>
+        <td th:text="${record.returned ? 'Returned' : 'Not Returned'}">Status</td>
+        <td>
+            <form th:action="@{/return}" method="post" th:if="${!record.returned}">
+                <input type="hidden" name="recordId" th:value="${record.id}" />
+                <button type="submit">Return</button>
+            </form>
+            <span th:if="${record.returned}">-</span>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+
+</body>
+</html>

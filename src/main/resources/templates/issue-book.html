@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+
+    <title>Issue Book</title>
+</head>
+<body>
+<div th:replace="fragments/header :: body"></div>
+<h1>Issue Book</h1>
+<form th:action="@{/issue}" method="post">
+    Student ID: <input type="number" name="studentId" required><br>
+    Book ID: <input type="number" name="bookId" required><br>
+    <button type="submit">Issue</button>
+</form>
+
+<p th:if="${message}" th:text="${message}" style="color: green;"></p>
+<p th:if="${error}" th:text="${error}" style="color: red;"></p>
+</body>
+</html>

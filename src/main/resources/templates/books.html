@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+
+    <title>Book Management</title>
+</head>
+<body>
+<div th:replace="fragments/header :: body"></div>
+<h1>Add Book</h1>
+<form th:action="@{/books/save}" th:object="${book}" method="post">
+    ISBN: <input type="text" th:field="*{isbn}" required><br>
+    Title: <input type="text" th:field="*{title}" required><br>
+    Author: <input type="text" th:field="*{author}" required><br>
+    Total Copies: <input type="number" th:field="*{totalCopies}" required><br>
+    Available Copies: <input type="number" th:field="*{availableCopies}" required><br>
+    <button type="submit">Add Book</button>
+</form>
+
+
+<h2>Search Book by Title/Author</h2>
+<form th:action="@{/books/view/search}" method="get">
+    <input type="text" name="title" placeholder="Enter title/author">
+    <button type="submit">Search</button>
+</form>
+
+
+<h2>All Books</h2>
+<table border="1">
+    <tr>
+        <th>ID</th><th>ISBN</th><th>Title</th><th>Author</th><th>Total</th><th>Available</th>
+    </tr>
+    <tr th:each="b : ${books}">
+        <td th:text="${b.id}"></td>
+        <td th:text="${b.isbn}"></td>
+        <td th:text="${b.title}"></td>
+        <td th:text="${b.author}"></td>
+        <td th:text="${b.totalCopies}"></td>
+        <td th:text="${b.availableCopies}"></td>
+    </tr>
+</table>
+</body>
+</html>

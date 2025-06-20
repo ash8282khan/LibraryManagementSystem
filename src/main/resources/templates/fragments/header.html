@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+
+</head>
+<body>
+<header>
+    <h2>📚 Library Management System</h2>
+    <nav>
+        <a th:href="@{/students/view}">Students</a>
+        <a th:href="@{/books/view}">Books</a>
+        <a th:href="@{/issue}">Issue Book</a>
+        <a th:href="@{/return}">Return Book</a>
+        <a th:href="@{/borrow-records}">Borrow Records</a>
+    </nav>
+</header>
+</body>
+</html>
