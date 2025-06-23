@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.training</groupId>
-	<artifactId>LibraryManagementSystem</artifactId>
+	<artifactId>LibraryManagementSystem01</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>LibraryManagementSystem</name>
 	<description>The Library Management System is a beginner-friendly, full-stack backend project built using Spring Boot, Spring Data JPA, and MySQL. It is designed to efficiently manage the core operations of a library such as book management, student registration, and book borrowing functionality.  This system allows administrators or librarians to manage a collection of books, register and manage student information, and track the lending and returning of books. It also enforces important business rules like preventing the deletion of books currently borrowed or blocking students from borrowing unavailable books.  The application follows RESTful API design principles, ensuring clean separation of concerns across controllers, services, repositories, and entity models. All data transactions persist securely in a relational MySQL database. Data validation, error handling, and status code standards are implemented to make the system robust and reliable.</description>
